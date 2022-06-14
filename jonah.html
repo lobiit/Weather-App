@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cookies</title>
+    <script>
+      //  document.cookie = "username=Lobiit";
+      //  let readCookie = document.cookie;
+      //  document.write(readCookie)
+
+      // Function to set a cookie
+      function setCookie(cookieName,cookieValue,cookieExp){
+          const d = new Date();
+          d.setTime(d.getTime() + (cookieExp * 24*60*60*1000));
+
+          let expires = "expires=" + d.toUTCString();
+          document.cookie = cookieName+ "=" +cookieValue+";"+cookieExp+";path=/";
+      }
+
+      // Function to get a cookie
+      function getCookie(cookieName)
+      {
+          let name = cookieName + "=";
+          let decodeCookie = decodeURIComponent(document.cookie);
+          let cookieArray = decodeCookie.split(";");
+
+          for(let i =0;i<cookieArray.length;i++){
+              let c = cookieArray[i];
+              while(c.charAt(0) === ' '){
+                  c = c.substring(1);
+              }
+              if(c.indexOf(name)===0){
+                  return c.substring(name.length, c.length);
+              }
+          }
+          return "";
+      }
+
+      // Check Cookie
+      function checkCookie(){
+          let user = getCookie("username");
+          if(user!==""){
+              alert("Welcome again"+user);
+          }
+          else{
+              user = prompt("Please enter your name:","");
+              if(user!== "" && user!== null){
+                  setCookie("username",user, 30);
+              }
+          }
+      }
+
+      //arrays
+      let x = [];
+      let students = ['Nambasi', 'Amon', 'Jose'];
+      // console.log(studennts);
+
+      console.log(students[1] = "joy")
+      console.log(students.length)
+    let result = students.join('-')
+    //   console.log(result)
+      result = students.concat(["graham", "walummbe", "mercy"]);
+      console.log(result)
+    //  filter reduce map push pop indexOf
+
+      function validate(){
+          if(document.myForm.name.value == ""){
+            alert("Please provide your name!");
+            document.myForm.name.focus();
+            return false
+          }
+      }
+    </script>
+</head>
+<body onload="checkCookie()">
+
+<form name="myForm" onsubmit="return(validate())">
+    <input type="text" name="name" >
+    <button type="submit" >Submit</button>
+</form>
+
+</body>
+</html>

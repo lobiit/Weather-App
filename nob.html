@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .mystyle{
+            color: green;
+            font-size: 1em;
+            font-family: "Kristen ITC";
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>Styling Using Javascript</title>
+</head>
+<body>
+    <p class="paragraph">This world dear mate is like a journey, we are travelling.
+        It is not despair that kills us, it's the hope.</p>
+    <p id="caro">
+        Mimi I am a baby guuuuuuurl!
+    </p>
+
+    <script>
+        document.querySelector(".paragraph").classList.add("mystyle")
+        // document.querySelector(".paragraph").style.color="blue";
+        document.querySelector("#caro").style.fontSize="50px";
+        document.getElementById("caro").style.fontStyle="italic"
+
+
+    </script>
+
+</body>
+</html>
